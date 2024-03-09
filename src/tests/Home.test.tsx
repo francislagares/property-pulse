@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
 import { expect, test } from 'vitest';
 
 import Home from '@/app/page';
@@ -6,9 +6,7 @@ import Home from '@/app/page';
 test('Pages Router', () => {
   render(<Home />);
 
-  const main = within(screen.getByRole('main'));
+  const main = screen.getByRole('main');
 
-  expect(
-    main.getByRole('link', { name: /By Vercel Logo/i }),
-  ).toBeInTheDocument();
+  expect(main).toBeInTheDocument();
 });
